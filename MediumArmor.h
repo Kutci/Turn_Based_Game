@@ -1,12 +1,12 @@
 #pragma once
-
 #include "Armor.h"
 
-class Unarmored : public Armor
+class MediumArmor : public Armor
 {
 public:
-    Unarmored(unsigned durability);
-    unsigned reduceDamage(unsigned dmg);
+    MediumArmor(unsigned durability);
+    unsigned reduceDamage(unsigned dmg) override;
     Armor *clone() const override;
+
     const char *getTypeName() const override;
 };
