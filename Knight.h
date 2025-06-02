@@ -2,12 +2,14 @@
 #include "Unit.h"
 #include <string>
 
-class Infantry : public Unit
+class Knight : public Unit
 {
-
 public:
-    Infantry();
+    Knight();
+
     void print() const override;
     Unit *clone() const override;
     std::string getTypeName() const override;
+
+    Armor *getArmor() const;
 };

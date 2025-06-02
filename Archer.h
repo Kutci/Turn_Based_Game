@@ -2,11 +2,10 @@
 #include "Unit.h"
 #include <string>
 
-class Infantry : public Unit
+class Archer : public Unit
 {
-
 public:
-    Infantry();
+    Archer();
     void print() const override;
     Unit *clone() const override;
     std::string getTypeName() const override;

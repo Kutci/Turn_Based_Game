@@ -2,12 +2,13 @@
 #include "Unit.h"
 #include <string>
 
-class Infantry : public Unit
+class Healer : public Unit
 {
-
 public:
-    Infantry();
+    Healer();
     void print() const override;
     Unit *clone() const override;
     std::string getTypeName() const override;
+
+    void heal(Unit *target);
 };

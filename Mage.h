@@ -1,12 +1,14 @@
 #pragma once
-#include "Unit.h"
 #include <string>
 
-class Infantry : public Unit
-{
+#include "Unit.h"
 
+class Mage : public Unit
+{
 public:
-    Infantry();
+    Mage();
+
+    void attackEnemy(Unit *target) override;
     void print() const override;
     Unit *clone() const override;
     std::string getTypeName() const override;

@@ -1,20 +1,20 @@
-#include "Infantry.h"
+#include "Archer.h"
 #include "MediumArmor.h"
 #include <iostream>
-Infantry::Infantry() : Unit()
+Archer::Archer() : Unit()
 {
-    this->health = 420;
-    this->maxHealth = 420;
-    this->attack = 7;
-    this->goldCost = 250;
+    this->health = 535;
+    this->maxHealth = 535;
+    this->attack = 10;
     this->mana = 0;
+    this->goldCost = 300;
     this->isCommander = false;
-    this->armor = new MediumArmor(8);
+    this->armor = new MediumArmor(3);
 }
 
-void Infantry::print() const
+void Archer::print() const
 {
-    std::cout << "Infantry - HP: " << getHealth()
+    std::cout << "Archer - HP: " << getHealth()
               << ", ATK: " << getAttack()
               << ", Mana: " << getMana()
               << ", Commander: " << (getIsCommander() ? "Yes" : "No");
@@ -32,12 +32,11 @@ void Infantry::print() const
     std::cout << std::endl;
 }
 
-Unit *Infantry::clone() const
+Unit *Archer::clone() const
 {
-    return new Infantry(*this);
+    return new Archer(*this);
 }
-
-std::string Infantry::getTypeName() const
+std::string Archer::getTypeName() const
 {
-    return "Infantry";
+    return "Archer";
 }
