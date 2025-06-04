@@ -1,11 +1,10 @@
 #pragma once
 #include "Unit.h"
-#include <string>
 
-class Archer : public Unit
+class Skeleton : public Unit
 {
 public:
-    Archer();
+    Skeleton();
 
     void print() const override;
     Unit *clone() const override;
