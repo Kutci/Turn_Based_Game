@@ -7,6 +7,7 @@
 #include "Healer.h"
 #include "Archer.h"
 #include "Mage.h"
+#include "Skeleton.h"
 bool hasAliveEnemies(const std::vector<Unit *> &enemies)
 {
     for (size_t i = 0; i < enemies.size(); ++i)
@@ -28,6 +29,7 @@ int main()
     units.push_back(new Healer());
     units.push_back(new Archer());
     units.push_back(new Mage());
+    units.push_back(new Skeleton());
 
     std::vector<Unit *> enemies;
     for (Unit *u : units)
