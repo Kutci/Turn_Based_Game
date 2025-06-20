@@ -103,6 +103,10 @@
     "numbers": "cpp",
     "stdexcept": "cpp",
     "streambuf": "cpp",
-    "typeinfo": "cpp"
+    "typeinfo": "cpp",
+    "fstream": "cpp",
+    "sstream": "cpp",
+    "cstdarg": "cpp",
+    "unordered_set": "cpp"
   }
 }
