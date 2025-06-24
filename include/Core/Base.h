@@ -21,6 +21,7 @@ public:
     const std::vector<Unit *> &getUnits() const;
     std::vector<Unit *> getCommanders() const;
     unsigned getCommandersCount() const;
+    unsigned getAliveUnitCount() const;
 
     void saveCommanders(std::ofstream &ofs) const;
     void loadCommanders(std::ifstream &ifs);

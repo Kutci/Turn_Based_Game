@@ -9,10 +9,18 @@ Base::~Base()
     for (Unit *u : units)
         delete u;
 }
+unsigned Base::getAliveUnitCount() const
+{
+    unsigned count = 0;
+    for (const Unit *u : units)
+        if (u->getHealth() > 0)
+            count++;
+    return count;
+}
 
 bool Base::canCreateUnit(unsigned cost) const
 {
-    return gold >= cost && units.size() < unitLimit;
+    return gold >= cost && getAliveUnitCount() < unitLimit;
 }
 
 bool Base::hasUnitLimit() const

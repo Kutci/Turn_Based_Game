@@ -1,0 +1,8 @@
+2050 3000
+1 1
+2
+Uther Paladin 5000 3000 20
+Sylvanas UndeadHunter 2000 1175 17
+2
+Kelthuzad Lich 1500 2200 15
+AnubArak DreadLord 1873 2300 3

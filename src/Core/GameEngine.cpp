@@ -414,7 +414,8 @@ void GameEngine::startDuel()
     int commanderCount = 1 + rand() % allUndeadCommanders.size();
     for (int i = 0; i < commanderCount; ++i)
     {
-        undeadArmy.push_back(allUndeadCommanders[i]);
+        if (allUndeadCommanders[i]->isAlive())
+            undeadArmy.push_back(allUndeadCommanders[i]);
     }
 
     int unitCount = rand() % 5 + 1;
@@ -427,22 +428,7 @@ void GameEngine::startDuel()
             continue;
         }
 
-        if (!base2)
-        {
-            delete u;
-            break;
-        }
-
-        bool added = base2->addUnit(u);
-        if (added)
-        {
-            undeadArmy.push_back(u);
-        }
-        else
-        {
-
-            delete u;
-        }
+        undeadArmy.push_back(u);
     }
 
     std::cout << "Base 2 units and commanders for duel:" << std::endl;
@@ -514,7 +500,7 @@ void GameEngine::startDuel()
     }
 
     std::cout << "\nLiving army units and commanders AFTER duel:" << std::endl;
-    for (Unit *unit : livingAttackers)
+    for (Unit *unit : selectedAllies)
         unit->print();
 
     std::cout << "\nUndead army units and commanders AFTER duel:" << std::endl;
@@ -574,7 +560,7 @@ void GameEngine::selectBoss(const std::string &name)
 
     for (Unit *unit : units)
     {
-        if (unit->getName() == name && unit->getIsCommander())
+        if (unit->getName() == name && unit->getIsCommander() && unit->isAlive())
         {
             for (Unit *cmd : selectedCommanders)
             {
@@ -612,7 +598,7 @@ void GameEngine::selectUnits(const std::string &typeName, unsigned count)
 
     for (Unit *unit : units)
     {
-        if (unit->getTypeName() == typeName && !unit->getIsCommander())
+        if (unit->getTypeName() == typeName && !unit->getIsCommander() && unit->isAlive())
         {
             if (!isAlreadySelected(unit, selectedAllies))
             {
